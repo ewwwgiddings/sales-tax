@@ -50,10 +50,12 @@ The solution should be used and operated in the following way according to my un
  4. Make sure all calculations for all prices are correct (i.e. sales tax when product costs .01 && < 1)
  5. Think of other edge cases (i.e. with calculations, usage, devices & browsers, network connection)
  6. UI updates (color, icons, text, layout, receipt download)
- 7. Backend API setup (.Net Core, SQL, Azure)
+ 7. Backend API setup (.Net Core, SQL, Azure) with _services/* for checkout functionality and users
  8. Add product photo capabilities
  9. Rework enum use
  10. Better category structure (and way to determine amount of tax)
+ 11. Set up _resolvers/* for cart and receipt
+ 12. Set up _guards/* for cart and receipt
 
 ## Clarifications
 

@@ -21,6 +21,12 @@ import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ReceiptComponent } from './components/receipt/receipt.component';
+// import { ReceiptResolver } from './_resolvers/receipt-resolver';
+// import { CartResolver } from './_resolvers/cart-resolver';
+import { ReceiptGuard } from './_guards/receipt.guard';
+import { CartGuard } from './_guards/cart.guard';
+import { CheckoutService } from './_services/checkout.service';
+import { UserService } from './_services/user.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +52,14 @@ import { ReceiptComponent } from './components/receipt/receipt.component';
     MatButtonModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [
+    // ReceiptResolver,
+    // CartResolver,
+    ReceiptGuard,
+    CartGuard,
+    CheckoutService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
