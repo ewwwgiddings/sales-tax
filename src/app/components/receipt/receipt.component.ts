@@ -44,7 +44,7 @@ export class ReceiptComponent implements OnInit, OnChanges {
         this.totalTax += fivePercent;
         itemTaxNoRound += fivePercent;
       }
-      this.receiptItem.items[i].pricePlusTax = parseFloat((itemPrice + itemTaxNoRound).toFixed(2));
+      this.receiptItem.items[i].pricePlusTax = itemPrice + itemTaxNoRound;
     }
     this.totalTax = this.roundTo5(this.totalTax);
   }
@@ -54,7 +54,6 @@ export class ReceiptComponent implements OnInit, OnChanges {
     for (const item of this.receiptItem.items) {
       this.totalCost += item.pricePlusTax;
     }
-    this.totalCost = Number(this.totalCost).toFixed(2);
   }
 
   receiptItemsChange() {
@@ -91,7 +90,7 @@ export class ReceiptComponent implements OnInit, OnChanges {
   }
 
   roundTo5(total: number) {
-    return parseFloat((Math.ceil(total * 20) / 20).toFixed(2));
+    return (Math.ceil(total * 20) / 20);
   }
 
   downloadReceipt() {

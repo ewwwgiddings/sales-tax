@@ -15,7 +15,7 @@
             <h5 *ngSwitchCase="'Medical'"><mat-icon aria-hidden="false">local_pharmacy</mat-icon> Medical</h5>
             <h5 *ngSwitchCase="'Other'"><mat-icon aria-hidden="false">category</mat-icon> Other</h5>
           </ng-container>
-          <p class="text-center">Price: {{ item.price }} USD (w/o tax)</p>
+          <p class="text-center">Price: {{ item.price | currency:'USD' }} USD (w/o tax)</p>
           <hr>
         </mat-card-content>
         <mat-card-actions class="col-12 text-center">

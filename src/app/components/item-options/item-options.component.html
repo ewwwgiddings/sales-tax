@@ -29,7 +29,7 @@
             <mat-form-field class="col-12">
               <mat-label>Price</mat-label>
               <input type="number" matInput placeholder="Ex. 10" name="price" formControlName="price" required maxlength="15">
-              <mat-error *ngIf="price.invalid && price.errors.min">Minimum amount is 1</mat-error>
+              <mat-error *ngIf="price.invalid && price.errors.min">Minimum amount is .01</mat-error>
               <mat-error *ngIf="price.invalid && price.errors.max">Maximum amount is 1,000,000</mat-error>
             </mat-form-field>
 

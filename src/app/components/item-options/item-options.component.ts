@@ -26,7 +26,7 @@ export class ItemOptionsComponent implements OnInit {
     this.addItemForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(75)]],
       description: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(256)]],
-      price: [0, [Validators.required, Validators.min(1), Validators.max(1000000)]],
+      price: [0, [Validators.required, Validators.min(0.01), Validators.max(1000000)]],
       category: [null, [Validators.required, Validators.minLength(4), Validators.maxLength(7)]],
       import: [false, [Validators.required]]
     });

@@ -47,8 +47,8 @@ The solution should be used and operated in the following way according to my un
  1. Clarify tax calculations (see 'Questions')
  2. Create unit and e2e tests
  3. Refactor code
- 4. Make sure all calculations are correct
- 5. Think of edge cases
+ 4. Make sure all calculations for all prices are correct (i.e. sales tax when product costs .01 && < 1)
+ 5. Think of other edge cases (i.e. with calculations, usage, devices & browsers, network connection)
  6. UI updates (color, icons, text, layout, receipt download)
  7. Backend API setup (.Net Core, SQL, Azure)
  8. Add product photo capabilities

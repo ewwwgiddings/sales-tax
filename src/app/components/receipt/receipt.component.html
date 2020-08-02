@@ -15,7 +15,7 @@
               <hr>
               <div *ngFor="let book of booksArray">
                 <div>
-                  <p><span *ngIf="book.import">Imported </span>{{ book.title | titlecase }}: {{ book.pricePlusTax }} USD (w/ tax)</p>
+                  <p><span *ngIf="book.import">Imported </span>{{ book.title | titlecase }}: {{ book.pricePlusTax | currency:'USD' }} USD (w/ tax)</p>
                 </div>
               </div>
             </ng-container>
@@ -23,26 +23,26 @@
               <h5>Food ({{ foodArray.length }})</h5>
               <hr>
               <div *ngFor="let food of foodArray">
-                <p><span *ngIf="food.import">Imported </span>{{ food.title | titlecase }}: {{ food.pricePlusTax }} USD (w/ tax)</p>
+                <p><span *ngIf="food.import">Imported </span>{{ food.title | titlecase }}: {{ food.pricePlusTax | currency:'USD' }} USD (w/ tax)</p>
               </div>
             </ng-container>
             <ng-container *ngIf="medicalArray.length > 0">
               <h5>Medical ({{ medicalArray.length }})</h5>
               <hr>
               <div *ngFor="let medical of medicalArray">
-                <p><span *ngIf="medical.import">Imported </span>{{ medical.title | titlecase }}: {{ medical.pricePlusTax }} USD (w/ tax)</p>
+                <p><span *ngIf="medical.import">Imported </span>{{ medical.title | titlecase }}: {{ medical.pricePlusTax | currency:'USD' }} USD (w/ tax)</p>
               </div>
             </ng-container>
             <ng-container *ngIf="otherArray.length > 0">
               <h5>Other ({{ otherArray.length }})</h5>
               <hr>
               <div *ngFor="let other of otherArray">
-                <p><span *ngIf="other.import">Imported </span>{{ other.title | titlecase }}: {{ other.pricePlusTax }} USD (w/ tax)</p>
+                <p><span *ngIf="other.import">Imported </span>{{ other.title | titlecase }}: {{ other.pricePlusTax | currency:'USD' }} USD (w/ tax)</p>
               </div>
             </ng-container>
             <hr>
-            <h3>Sales Taxes: {{ totalTax }}</h3>
-            <h3>Total: {{ totalCost }}</h3>
+            <h3>Sales Taxes: {{ totalTax | currency:'USD' }}</h3>
+            <h3>Total: {{ totalCost | currency:'USD' }}</h3>
           </ng-container>
           <ng-container *ngIf="receiptItem.length === 0">
             <h3 class="text-center">No items in cart</h3>
