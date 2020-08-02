@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { Item } from 'src/app/_models/item';
 import { ReceiptItem } from 'src/app/_models/receipt-item';
+import htmlToImage from 'html-to-image';
 
 @Component({
   selector: 'app-receipt',
@@ -8,6 +9,7 @@ import { ReceiptItem } from 'src/app/_models/receipt-item';
   styleUrls: ['./receipt.component.scss']
 })
 export class ReceiptComponent implements OnInit, OnChanges {
+  @ViewChild('receipt', { static: false }) receipt: ElementRef;
   @Input() receiptItem: ReceiptItem;
   booksArray: Array<Item> = [];
   foodArray: Array<Item> = [];
@@ -16,7 +18,7 @@ export class ReceiptComponent implements OnInit, OnChanges {
   totalTax: any;
   totalCost: any;
 
-  constructor() { }
+  constructor(private renderer2: Renderer2) { }
 
   ngOnInit() {
   }
@@ -90,6 +92,22 @@ export class ReceiptComponent implements OnInit, OnChanges {
 
   roundTo5(total: number) {
     return parseFloat((Math.ceil(total * 20) / 20).toFixed(2));
+  }
+
+  downloadReceipt() {
+    const doc = this.receipt.nativeElement;
+    doc.style.backgroundColor = '#424242';
+    htmlToImage.toPng(doc)
+      .then((dataUrl) => {
+        this.download(dataUrl, 'receipt.png');
+      });
+  }
+
+  download(dataurl, filename) {
+    const a = this.renderer2.createElement('a');
+    a.href = dataurl;
+    a.setAttribute('download', filename);
+    a.click();
   }
 
 }

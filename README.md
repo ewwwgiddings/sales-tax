@@ -1,6 +1,6 @@
 # Sales Tax Solution
 
-This solution is in adherence to "Problem Two (Sales Taxes)" exercise.
+This solution is an MVP for the "Problem Two (Sales Taxes)" exercise.
 
 **NOTE** Please add any bugs, errors, questions, etc. in the solution to the Github 'Issues', and they will be addressed ASAP.
 
@@ -22,23 +22,25 @@ The solution's main dependencies include, but are not limited to:
  - HTML-to-image
 	 - [https://www.npmjs.com/package/html-to-image](https://www.npmjs.com/package/html-to-image)
 
-The solution allows for custom user input to be added in the 'items option' component. These can be added as items in the 'cart' component. The items in the cart are reflected in the 'receipt' component.
+The solution allows for custom user input to be added in the 'item-options' component. These can be added as 'items' in the 'cart' component.
 
-The tax and sales in the 'receipt' component are calculated based on conditions of the item. Please see 'Questions' section of README for a note on these calculations.
+The items in the 'cart' are reflected in the 'receipt' component.
 
-Once a user has input their total item count into the cart, they are able to save and/or print the receipts information.
+The tax and sales in the 'receipt' component are calculated based on the conditions of the item as described in the exercise document. Please see 'Questions' section of README for a note on these calculations.
+
+Once a user has input their total 'item' count into the 'cart', they are able to save the receipts information as a PNG.
 
 **NOTE** This solution is an MVP. There is much more needed for production. See ToDo section for brief and current list of what is needed.
 
 ### Using the solution:
 
-The solution should be used and operate in the following way according to my understanding of the documents:
+The solution should be used and operated in the following way according to my understanding of the exercise document:
 
- 1. Allow the user to add their own input using the item options component
- 2. Add the custom inputs as part of the cart component
- 3. Remove the custom inputs as part of the cart component
- 4. View the changes in the receipt component as a result of additions and subtractions to the cart
- 5. Save the receipt as an image and download || print the receipt
+ 1. Allow the user to add their own input using the 'item-options' component
+ 2. Add the custom inputs as part of the 'cart' component
+ 3. Remove the custom inputs as part of the 'cart' component
+ 4. View the changes in the 'receipt' component as a result of additions and subtractions to the 'cart'
+ 5. Save the receipt as an image (download)
 
 ## ToDo
 
@@ -47,9 +49,11 @@ The solution should be used and operate in the following way according to my und
  3. Refactor code
  4. Make sure all calculations are correct
  5. Think of edge cases
- 6. UI updates (color, icons, text, layout)
+ 6. UI updates (color, icons, text, layout, receipt download)
  7. Backend API setup (.Net Core, SQL, Azure)
  8. Add product photo capabilities
+ 9. Rework enum use
+ 10. Better category structure (and way to determine amount of tax)
 
 ## Clarifications
 
@@ -65,11 +69,13 @@ The total 'Sales Tax' field is output as:
 
 > Sales Taxes: 1.50
 
-Based on my understanding of the first block quote, the 'Music CD' output should read 16.50. This is because the 'prices plus tax' is what should be rounded up to the nearest 5 cents. In the example, only the total 'Sales Tax' is what is rounded up, and not the individual items (total + tax) value.
+Based on my understanding of the first block quote, the 'Music CD' output should read 16.50. This is because I understand from description that the 'prices plus tax' is what should be rounded up to the nearest 5 cents. In the example, only the total 'Sales Tax' is what is rounded up, and not the individual item's (price + tax) value.
 
-Since the output is the focus of most of the doc, the total sales tax, separate from the item, is what was rounded up to the nearest 5 cents. Assuming the output is what matters, I have implemented the functionality accordingly.
+Since the output is the focus of the document, the total sales tax, separate from the item, is what I have rounded up to the nearest 5 cents. Assuming the output is what matters, I have implemented the functionality accordingly.
 
-**Question:** Can anyone explain, more in-depth, or in another way I can properly understand, how and where the sales tax round up is to occur?
+Changes to this can be made when refactoring the solution to be more elegant and account for any edge cases not covered.
+
+**Question:** Can anyone explain, more in-depth, or in another way I can understand, how and where the sales tax round up is to occur?
 
 ## Getting started
 

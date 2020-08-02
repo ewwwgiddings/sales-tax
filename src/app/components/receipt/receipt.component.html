@@ -7,7 +7,7 @@
           <mat-card-subtitle class="text-center">The receipt below reflects the items you have added to the cart.</mat-card-subtitle>
         </mat-card-header>
 
-        <mat-card-content class="col-12">
+        <mat-card-content #receipt class="col-12">
           <hr>
           <ng-container *ngIf="receiptItem.length > 0">
             <ng-container *ngIf="booksArray.length > 0">
@@ -51,8 +51,8 @@
         </mat-card-content>
 
         <mat-card-actions class="col-12 text-center">
-          <button mat-button>SAVE</button>
-          <button mat-button>PRINT</button>
+          <button mat-button [disabled]="receiptItem.length === 0" (click)="downloadReceipt()">DOWNLOAD</button>
+          <!-- <button mat-button [disabled]="receiptItem.length === 0">PRINT</button> -->
         </mat-card-actions>
       </mat-card>
     </div>
