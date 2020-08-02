@@ -56,6 +56,7 @@ The solution should be used and operated in the following way according to my un
  10. Better category structure (and way to determine amount of tax)
  11. Set up _resolvers/* for cart and receipt
  12. Set up _guards/* for cart and receipt
+ 13. Set up routes & pages (lazy loading)
 
 ## Clarifications
 
