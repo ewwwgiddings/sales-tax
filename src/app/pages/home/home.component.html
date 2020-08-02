@@ -1,0 +1,4 @@
+<h1 class="text-center text-light mt-5">PROBLEM TWO (SALES TAX) SOLUTION</h1>
+<app-item-options (addItemEvent)="addItem($event)"></app-item-options>
+<app-cart [cartItems]="items" (removeItemEvent)="removeItem($event)"></app-cart>
+<app-receipt [receiptItem]="receiptItem"></app-receipt>

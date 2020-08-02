@@ -1,0 +1,60 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12">
+      <mat-card>
+        <mat-card-header class="justify-content-center">
+          <mat-card-title class="text-center">Receipt</mat-card-title>
+          <mat-card-subtitle class="text-center">The receipt below reflects the items you have added to the cart.</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content class="col-12">
+          <hr>
+          <ng-container *ngIf="receiptItem.length > 0">
+            <ng-container *ngIf="booksArray.length > 0">
+              <h5>Books ({{ booksArray.length }})</h5>
+              <hr>
+              <div *ngFor="let book of booksArray">
+                <div>
+                  <p><span *ngIf="book.import">Imported </span>{{ book.title | titlecase }}: {{ book.pricePlusTax }} USD (w/ tax)</p>
+                </div>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="foodArray.length > 0">
+              <h5>Food ({{ foodArray.length }})</h5>
+              <hr>
+              <div *ngFor="let food of foodArray">
+                <p><span *ngIf="food.import">Imported </span>{{ food.title | titlecase }}: {{ food.pricePlusTax }} USD (w/ tax)</p>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="medicalArray.length > 0">
+              <h5>Medical ({{ medicalArray.length }})</h5>
+              <hr>
+              <div *ngFor="let medical of medicalArray">
+                <p><span *ngIf="medical.import">Imported </span>{{ medical.title | titlecase }}: {{ medical.pricePlusTax }} USD (w/ tax)</p>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="otherArray.length > 0">
+              <h5>Other ({{ otherArray.length }})</h5>
+              <hr>
+              <div *ngFor="let other of otherArray">
+                <p><span *ngIf="other.import">Imported </span>{{ other.title | titlecase }}: {{ other.pricePlusTax }} USD (w/ tax)</p>
+              </div>
+            </ng-container>
+            <hr>
+            <h3>Sales Taxes: {{ totalTax }}</h3>
+            <h3>Total: {{ totalCost }}</h3>
+          </ng-container>
+          <ng-container *ngIf="receiptItem.length === 0">
+            <h3 class="text-center">No items in cart</h3>
+          </ng-container>
+          <hr>
+        </mat-card-content>
+
+        <mat-card-actions class="col-12 text-center">
+          <button mat-button>SAVE</button>
+          <button mat-button>PRINT</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

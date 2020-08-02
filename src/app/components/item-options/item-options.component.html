@@ -1,0 +1,60 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <mat-card>
+
+        <mat-card-header class="justify-content-center">
+          <mat-card-title class="text-center">Add New Item</mat-card-title>
+          <mat-card-subtitle class="text-center">Choose from the options below to add a new item to the cart</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content class="col-12">
+
+          <form [formGroup]="addItemForm">
+
+            <mat-form-field class="col-12">
+              <mat-label>Title</mat-label>
+              <input type="text" matInput placeholder="Ex. Book" name="title" required formControlName="title" maxlength="75">
+              <mat-hint align="end">{{ title.value !== null ? title.value.length : 0 }} / 75</mat-hint>
+              <mat-error *ngIf="title.invalid && title.errors.required">Title is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="col-12">
+              <mat-label>Description</mat-label>
+              <textarea matInput placeholder="Ex. By author Foo Bar, this is a book about..." name="description" required formControlName="description" maxlength="256"></textarea>
+              <mat-hint align="end">{{ description.value !== null ? description.value.length : 0 }} / 256</mat-hint>
+              <mat-error *ngIf="description.invalid && description.errors.required">Description is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="col-12">
+              <mat-label>Price</mat-label>
+              <input type="number" matInput placeholder="Ex. 10" name="price" formControlName="price" required maxlength="15">
+              <mat-error *ngIf="price.invalid && price.errors.min">Minimum amount is 1</mat-error>
+              <mat-error *ngIf="price.invalid && price.errors.max">Maximum amount is 1,000,000</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="col-12">
+              <mat-label>Category</mat-label>
+              <mat-select formControlName="category" name="category" required>
+                <mat-option *ngFor="let category of categoriesArray" [value]="category">
+                  {{ category }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="category.invalid && category.errors.required">Category is required</mat-error>
+            </mat-form-field>
+
+            <mat-slide-toggle name="import" formControlName="import" class="col-12">Imported?</mat-slide-toggle>
+
+          </form>
+
+        </mat-card-content>
+
+        <mat-card-actions class="col-12 text-center">
+          <button mat-button (click)="resetForm()">RESET</button>
+          <button mat-button type="submit" [disabled]="addItemForm.invalid" (click)="addItemToCart()">ADD</button>
+        </mat-card-actions>
+
+      </mat-card>
+    </div>
+  </div>
+</div>
