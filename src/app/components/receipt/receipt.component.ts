@@ -37,16 +37,15 @@ export class ReceiptComponent implements OnInit, OnChanges {
       const fivePercent = itemPrice * .05;
       const tenPercent = itemPrice * .1;
       if (this.receiptItem.items[i].category.toString() === 'Other') {
-        this.totalTax += tenPercent;
         itemTaxNoRound += tenPercent;
       }
       if (this.receiptItem.items[i].import === true) {
-        this.totalTax += fivePercent;
         itemTaxNoRound += fivePercent;
       }
-      this.receiptItem.items[i].pricePlusTax = itemPrice + itemTaxNoRound;
+      const itemTaxRounded = this.roundTo5(itemTaxNoRound);
+      this.receiptItem.items[i].pricePlusTax = itemPrice + itemTaxRounded;
+      this.totalTax += itemTaxRounded;
     }
-    this.totalTax = this.roundTo5(this.totalTax);
   }
 
   calculateTotal() {
