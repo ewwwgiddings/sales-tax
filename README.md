@@ -28,7 +28,7 @@ The items in the 'cart' are reflected in the 'receipt' component.
 
 The tax and sales in the 'receipt' component are calculated based on the conditions of the item as described in the exercise document.
 
-Once a user has input their total 'item' count into the 'cart', they are able to save the receipts information as a PNG.
+Once a user has input their total 'item' count into the 'cart', they are able to save the receipt's information as a PNG.
 
 **NOTE** This solution is an MVP. There is much more needed for production. See ToDo section for brief and current list of what is needed.
 
